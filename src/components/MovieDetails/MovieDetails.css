@@ -1,0 +1,130 @@
+
+.details__banner img{
+ width: 100%;
+ height: 900px;
+ object-fit: cover;
+}
+
+
+.details__banner::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 900px;
+    z-index: 1;
+    background-image: linear-gradient(to top, #0f0f0f, rgba(0,0,0, 0.5));
+   }
+   
+
+.details__container{
+    display: flex;
+    justify-content:center;
+ 
+    margin: auto;
+    
+    z-index: 100;
+    height: auto;
+    gap: 1rem;
+ 
+}
+
+
+.details__card{
+    flex: 0 0 800px;
+}
+.details__image{
+    border-radius: 20px;
+}
+
+.details__title{
+    font-size: 2rem;
+    color: var(--white);
+    position: absolute;
+    top:85%;
+    bottom: 0;
+    z-index: 100;
+    font-weight: var(--fw-400);
+}
+.details__container__genres{
+    display: grid;
+    grid-template-columns: repeat(5,120px);
+    align-items: center;
+}
+
+.details__genres{
+    color: var(--white);
+    margin-right: 1rem;
+    border: 1px solid var(--white);
+    border-radius: 20px;
+    font-size: 0.6rem;
+    width: 100px;
+    height: 25px;
+    text-align: center;
+}
+.details_desc{
+    font-size: 0.7rem;
+    color: var(--white);
+    margin: 1rem 0;
+    width: 800px;
+    font-weight: var(--fw-300);
+    
+}
+
+
+.no__poster{
+    width:200px;
+    border:2px solid #fff;
+    height: 300px;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 2rem;
+    color: #fff;
+}
+
+
+
+@media screen and (max-width:1200px) {
+    .details__container{
+        max-width: 1200px;
+        gap: 0.5rem;
+        
+      
+    }
+    .details__title {
+        left:25%;
+        right: 0;
+    }
+  
+    .details__image{
+        display: none;
+    }
+    .details__container__genres{
+       justify-content: center;
+    
+      grid-template-columns: repeat(3,120px);
+      gap: 1rem;
+    
+    
+    }
+    .details_desc{
+        margin: 1rem auto;
+        width: 610px;
+    }
+}
+
+
+@media screen and (max-width:992px){
+    .details__title{
+        left: 1rem;
+        font-size: 1.8rem;
+    }
+ 
+}
+
+@media screen and (max-width:768px){
+    .details_desc{
+        width: 450px;
+    }
+}

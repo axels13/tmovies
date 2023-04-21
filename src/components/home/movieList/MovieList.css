@@ -1,0 +1,17 @@
+.movie-list {
+    color: var(--white);
+    font-size: var(--fs-small);
+    cursor: pointer;
+ 
+   width: 240px;
+}
+
+
+.movie-list img{
+    border-radius: 25px;
+}
+
+.movie__title{
+    font-size: var(--fs-normal);
+    padding: 0;
+}

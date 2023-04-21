@@ -1,0 +1,60 @@
+.castList__container{
+   display: grid;
+   grid-template-columns: repeat(5,100px);
+   gap: 0.5rem;
+}
+
+.cast__title{
+    color: var(--white);
+    font-weight: var(--fw-600);
+    text-align: left;
+    margin :1rem 0 0 0;
+    font-size: 1rem;
+}
+
+.castList__actors__card{
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    color: var(--white);
+    font-size: 0.5rem;
+   
+}
+
+@media screen and (max-width:1200px) {
+
+    .cast{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+
+
+@media screen and (max-width:992px) {
+   
+    .castList__actors__card {
+        
+    }
+    .castList__container{
+        
+        
+        grid-template-columns: repeat(4,100px);
+   
+        height: auto;
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width:768px){
+    .castList__container{
+        grid-template-columns: repeat(3,100px);
+    }
+    .castList__actors__card img {
+        width: 100px;
+        
+    }
+    
+}

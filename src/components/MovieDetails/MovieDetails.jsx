@@ -1,0 +1,94 @@
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getMovieDetails } from "../hook/useFech";
+import "./MovieDetails.css";
+import CastList from "../CastList/CastList";
+import Trailer from "../Trailer/Trailer";
+import image from "../../assets/footer-bg.jpg";
+import SimilarMovies from "../SimilarMovies/SimilarMovies";
+
+const MovieDetails = () => {
+  const { id } = useParams();
+  const [details, setDetails] = useState({});
+
+  useEffect(() => {
+    const fetchDetails = async () => {
+      let data = await getMovieDetails(id);
+      if (data) {
+        setDetails(data);
+      }
+    };
+    fetchDetails();
+  }, [id]);
+
+  const displayGenres = () => {
+    return (
+      details.genres &&
+      details.genres.map((genre) => (
+        <div className="details__genres" key={genre.id}>
+          <span key={genre.id}>{genre.name}</span>
+        </div>
+      ))
+    );
+  };
+  return (
+    <>
+      {details && (
+        <section className="details">
+          <div className="details__banner">
+            {details.backdrop_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+                alt=""
+              />
+            ) : (
+              <img src={image} alt="banner" />
+            )}
+          </div>
+
+          <div className="details__container">
+            <div className="details__card_img">
+              {details.poster_path ? (
+                <img
+                  src={`https://image.tmdb.org/t/p/original${details.poster_path}`}
+                  width={250}
+                  alt=""
+                  className="details__image"
+                />
+              ) : (
+                <div className="no__poster">
+                  <p>No poster path available</p>
+                </div>
+              )}
+            </div>
+            <div className="details__card">
+              <h1 className="details__title">{details.title}</h1>
+              <div className="details__container__genres">
+                {displayGenres()}
+              </div>
+              <p className="details_desc">
+                {" "}
+                {details.overview ? details.overview : "No overview"}
+              </p>
+              <div className="cast">
+                <div>
+                  <h3 className="cast__title">Casts</h3>
+                </div>
+
+                <CastList id={id} />
+              </div>
+              <div>
+                <div>
+                  <Trailer id={id} />
+                </div>
+              </div>
+              <SimilarMovies id={id} />
+            </div>
+          </div>
+        </section>
+      )}
+    </>
+  );
+};
+
+export default MovieDetails;

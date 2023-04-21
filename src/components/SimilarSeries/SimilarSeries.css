@@ -1,0 +1,45 @@
+.similar__cards{
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    gap: 1rem;
+    overflow-x: auto;
+    cursor: pointer;
+}
+
+h3 {
+    color: var(--white);
+    
+}
+
+@media  screen and (max-width:1200px) {
+    .similar__cards{
+        max-width: 900px;
+    }
+}
+
+
+@media  screen and (max-width:992px) {
+    .similar__cards{
+        max-width: 800px;
+    }
+}
+
+@media  screen and (max-width:768px) {
+    .similar__cards{
+        max-width: 700px;
+    }
+    h3{
+        padding-left: 2rem;
+    }
+}
+
+
+@media  screen and (max-width:568px) {
+    .similar__cards{
+        max-width: 400px;
+    }
+    h3{
+        padding-left: 9rem;
+    }
+}
